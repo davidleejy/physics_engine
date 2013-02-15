@@ -27,6 +27,12 @@
 }
 
 
-
+- (void)testBlah {
+    Vector2D* g1 = [Vector2D vectorWith:23 y:67];
+    Vector2D* g2 = g1;
+    g1 = [Vector2D vectorWith:1234 y:1234];
+    NSLog(@"%f,%f g1",[g1 x],[g1 y]);
+    NSLog(@"%f,%f g2",[g2 x],[g2 y]);
+}
 
 @end

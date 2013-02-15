@@ -37,6 +37,15 @@
 @synthesize gravity = _gravity;
 
 
+/******* KEYS FOR DICTIONARY **********/
+NSString *const KEY_c1_vector = @"c1";
+NSString *const KEY_c2_vector = @"c2";
+NSString *const KEY_n_vector = @"n";
+NSString *const KEY_t_vector = @"t";
+
+NSString *const KEY_collision_truth_value = @"collided?";
+NSString *const KEY_computed_impluse_truth_value = @"impulsed?";
+/***************************************/
 
 - (void) updateVelocity:(WorldyObject*)worldyObject {
     
@@ -229,7 +238,7 @@
 
 
 - (BOOL)collisionResolution:(WorldyObject*)worldyObjectA :(WorldyObject*)worldyObjectB
-        ReturnContactPoint1:(Vector2D**)c1 ReturnContactPoint2:(Vector2D**)c2 {
+        ReturnValues:(NSDictionary**)returnDict {
     
     // 1. Check whether worldyObjects A and B in the midst of a collision.
     Vector2D* f_subscript_A = [self fAVectorWith:worldyObjectA And:worldyObjectB];
@@ -269,6 +278,7 @@
     
     Vector2D *n_subscript_f;
     Vector2D *n_subscript_s;
+    Vector2D *n_vector;
     double D_subscript_f;
     double D_subscript_s;
     double D_subscript_neg;
@@ -283,10 +293,12 @@
             if ( [[self directionalVectorInWorldyObjectACoordSystemFrom:worldyObjectA To:worldyObjectB] x]
                 > 0)
             {
-                n_subscript_f = [R_subscript_A col1]; // (5)
+                n_vector = [R_subscript_A col1];
+                n_subscript_f = n_vector; // (5)
             }
             else {
-                n_subscript_f = [[R_subscript_A col1] negate]; // (5)
+                n_vector = [[R_subscript_A col1] negate];
+                n_subscript_f = n_vector; // (5)
             }
             
             Vector2D *h_subscript_A = [self hVectorOf:worldyObjectA];
@@ -306,10 +318,12 @@
             if ( [[self directionalVectorInWorldyObjectACoordSystemFrom:worldyObjectA To:worldyObjectB] y]
                 > 0)
             {
-                n_subscript_f = [R_subscript_A col2]; // (11)
+                n_vector = [R_subscript_A col2];
+                n_subscript_f = n_vector; // (11)
             }
             else {
-                n_subscript_f = [[R_subscript_A col2] negate]; // (11)
+                n_vector = [[R_subscript_A col2] negate];
+                n_subscript_f = n_vector; // (11)
             }
             
             Vector2D *h_subscript_A = [self hVectorOf:worldyObjectA];
@@ -329,14 +343,12 @@
             if ( [[self directionalVectorInWorldyObjectBCoordSystemFrom:worldyObjectA To:worldyObjectB] x]
                 > 0)
             {
-                // n_vector = [R_subscript_B col1]
-                // n_subscript_f = [n_vector negate]
-                n_subscript_f = [[R_subscript_B col1] negate]; // (17)
+                n_vector = [R_subscript_B col1];
+                n_subscript_f = [n_vector negate]; // (17)
             }
             else {
-                // n_vector = [[R_subscript_B col1] negate]
-                // n_subscript_f = [n_vector negate] == [R_subscript_B col1]
-                n_subscript_f = [R_subscript_B col1]; // (17)
+                n_vector = [[R_subscript_B col1] negate];
+                n_subscript_f = [n_vector negate]; // (17)
             }
             
             Vector2D *h_subscript_B = [self hVectorOf:worldyObjectB];
@@ -356,14 +368,12 @@
             if ( [[self directionalVectorInWorldyObjectBCoordSystemFrom:worldyObjectA To:worldyObjectB] y]
                 > 0)
             {
-                // n_vector = [R_subscript_B col2]
-                // n_subscript_f = [n_vector negate]
-                n_subscript_f = [[R_subscript_B col2] negate]; // (23)
+                n_vector = [R_subscript_B col2];
+                n_subscript_f = [n_vector negate]; // (23)
             }
             else {
-                // n_vector = [[R_subscript_B col2] negate]
-                // n_subscript_f = [n_vector negate] == [R_subscript_B col2]
-                n_subscript_f = [R_subscript_B col2]; // (23)
+                n_vector = [[R_subscript_B col2] negate];
+                n_subscript_f = [n_vector negate]; // (23)
             }
             
             Vector2D *h_subscript_B = [self hVectorOf:worldyObjectB];
@@ -560,11 +570,39 @@
     // TODO p 14 appendix unsure.
     
     double s1 = [n_subscript_f dot:v1_vector_primeprime] - D_subscript_f; // (45)
-    *c1 = [v1_vector_primeprime subtract:[n_subscript_f multiply:s1]]; // (46)
+    Vector2D *c1 = [v1_vector_primeprime subtract:[n_subscript_f multiply:s1]]; // (46)
     double s2 = [n_subscript_f dot:v2_vector_primeprime] - D_subscript_f; // (47)
-    *c2 = [v2_vector_primeprime subtract:[n_subscript_f multiply:s2]]; // (48)
+    Vector2D *c2 = [v2_vector_primeprime subtract:[n_subscript_f multiply:s2]]; // (48)
+    
+    Vector2D *t_vector = [n_vector crossZ:1];
+    
+    // Fill argument returnDict
+    NSArray *keys = [NSArray arrayWithObjects:
+                     KEY_c1_vector,
+                     KEY_c2_vector,
+                     KEY_n_vector,
+                     KEY_t_vector,nil];
+    NSArray *objects = [NSArray arrayWithObjects:
+                        c1,
+                        c2,
+                        n_vector,
+                        t_vector, nil];
+    *returnDict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     
     return YES;
+}
+
+
+- (NSDictionary*) impulsesOfCollisionBetween:(WorldyObject*)worldyObjectA
+                                         And:(WorldyObject*)worldyObjectB
+            WithValuesFromResolvingCollision:(NSDictionary*)dictFromResolvingCollision {
+    
+}
+
+- (void) moveWorldyObjects:(WorldyObject*)worldyObjectA
+                          :(WorldyObject*)worldyObjectB
+WithValuesFromComputingImpulse:(NSDictionary*)dictFromComputingImpulse {
+    
 }
 
 

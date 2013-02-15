@@ -18,9 +18,18 @@
 @interface PhysicsLogic : NSObject
 
 @property (readwrite) World *world;
-
 @property (readwrite) Vector2D *gravity;
 
+/******* KEYS FOR DICTIONARY **********/
+extern NSString *const KEY_c1_vector;
+extern NSString *const KEY_c2_vector;
+extern NSString *const KEY_n_vector;
+extern NSString *const KEY_t_vector;
+
+extern NSString *const KEY_collision_truth_value;
+extern NSString *const KEY_computed_impluse_truth_value;
+
+/***************************************/
 
 - (void) updateVelocity:(WorldyObject*)worldyObject;
 // MODIFIES: velocity property of a worldly object.
@@ -83,12 +92,23 @@
 
 
 - (BOOL) collisionResolution:(WorldyObject*)worldyObjectA :(WorldyObject*)worldyObjectB
-         ReturnContactPoint1Ptr:(Vector2D**)c1 ReturnContactPoint2Ptr:(Vector2D**)c2;
-// MODIFIES: c1, c2
+         ReturnValues:(NSDictionary**)returnDict;
+// MODIFIES: returnDict
 // EFFECTS: Resolves the collision between these worldyObjectA, worldyObjectB.
 //          Additionally, returns YES if collision was detected.
 // note that this is Step 2 of Appendix.
 
+- (NSDictionary*) impulsesOfCollisionBetween:(WorldyObject*)worldyObjectA
+                                         And:(WorldyObject*)worldyObjectB
+            WithValuesFromResolvingCollision:(NSDictionary*)dictFromResolvingCollision;
+// EFFECTS: Returns a NSdictionary of values that pertain to applying impulses to the collision.
+// note that this is Step 3 of Appendix.
 
+- (void) moveWorldyObjects:(WorldyObject*)worldyObjectA
+                          :(WorldyObject*)worldyObjectB
+WithValuesFromComputingImpulse:(NSDictionary*)dictFromComputingImpulse;
+// MODIFIES: worldyObjectA, worldyObjectB
+// EFFECTS: Moves the worldyObjects involved.
+// note that this is Step 4 of Appendix.
 
 @end
