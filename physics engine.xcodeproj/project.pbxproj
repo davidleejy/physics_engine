@@ -9,6 +9,28 @@
 /* Begin PBXBuildFile section */
 		FB77B33016CD251D00EE09B2 /* Matrix2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890816CCA4F20073418C /* Matrix2D.m */; };
 		FB77B33216CD252400EE09B2 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890A16CCA4F20073418C /* Vector2D.m */; };
+		FBB7BF9216CDD1A80057DC39 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7BF9116CDD1A80057DC39 /* SenTestingKit.framework */; };
+		FBB7BF9316CDD1A80057DC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E416CCA1EF0073418C /* UIKit.framework */; };
+		FBB7BF9416CDD1A80057DC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E616CCA1EF0073418C /* Foundation.framework */; };
+		FBB7BF9A16CDD1A80057DC39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBB7BF9816CDD1A80057DC39 /* InfoPlist.strings */; };
+		FBB7BF9D16CDD1A80057DC39 /* PhysicsLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BF9C16CDD1A80057DC39 /* PhysicsLogicTests.m */; };
+		FBB7BFA916CDDA010057DC39 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7BF9116CDD1A80057DC39 /* SenTestingKit.framework */; };
+		FBB7BFAA16CDDA010057DC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E416CCA1EF0073418C /* UIKit.framework */; };
+		FBB7BFAB16CDDA010057DC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E616CCA1EF0073418C /* Foundation.framework */; };
+		FBB7BFB116CDDA010057DC39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBB7BFAF16CDDA010057DC39 /* InfoPlist.strings */; };
+		FBB7BFB416CDDA010057DC39 /* WorldyObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BFB316CDDA010057DC39 /* WorldyObjectTests.m */; };
+		FBB7BFB916CDE1670057DC39 /* Matrix2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890816CCA4F20073418C /* Matrix2D.m */; };
+		FBB7BFBA16CDE1680057DC39 /* Matrix2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890816CCA4F20073418C /* Matrix2D.m */; };
+		FBB7BFBB16CDE16B0057DC39 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890A16CCA4F20073418C /* Vector2D.m */; };
+		FBB7BFBC16CDE16B0057DC39 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890A16CCA4F20073418C /* Vector2D.m */; };
+		FBB7BFBD16CDE16F0057DC39 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA99816CCE23300BBA13D /* World.m */; };
+		FBB7BFBE16CDE16F0057DC39 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA99816CCE23300BBA13D /* World.m */; };
+		FBB7BFBF16CDE1720057DC39 /* PhysicsLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA99C16CCE29800BBA13D /* PhysicsLogic.m */; };
+		FBB7BFC016CDE1730057DC39 /* PhysicsLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA99C16CCE29800BBA13D /* PhysicsLogic.m */; };
+		FBB7BFC116CDE1960057DC39 /* WorldyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA99F16CCE36300BBA13D /* WorldyObject.m */; };
+		FBB7BFC316CDE2780057DC39 /* EnvironmentSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA9A716CCE79600BBA13D /* EnvironmentSettings.m */; };
+		FBB7BFC416CDE27A0057DC39 /* EnvironmentSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA9A716CCE79600BBA13D /* EnvironmentSettings.m */; };
+		FBB7BFC716CDE3B60057DC39 /* WorldyObjectTestSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BFC616CDE3B60057DC39 /* WorldyObjectTestSettings.m */; };
 		FBB988E516CCA1EF0073418C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E416CCA1EF0073418C /* UIKit.framework */; };
 		FBB988E716CCA1EF0073418C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E616CCA1EF0073418C /* Foundation.framework */; };
 		FBB988E916CCA1EF0073418C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E816CCA1EF0073418C /* CoreGraphics.framework */; };
@@ -27,6 +49,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FBB7BF9016CDD1A80057DC39 /* PhysicsLogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhysicsLogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBB7BF9116CDD1A80057DC39 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FBB7BF9716CDD1A80057DC39 /* PhysicsLogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhysicsLogicTests-Info.plist"; sourceTree = "<group>"; };
+		FBB7BF9916CDD1A80057DC39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBB7BF9B16CDD1A80057DC39 /* PhysicsLogicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsLogicTests.h; sourceTree = "<group>"; };
+		FBB7BF9C16CDD1A80057DC39 /* PhysicsLogicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhysicsLogicTests.m; sourceTree = "<group>"; };
+		FBB7BF9E16CDD1A80057DC39 /* PhysicsLogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhysicsLogicTests-Prefix.pch"; sourceTree = "<group>"; };
+		FBB7BFA816CDDA010057DC39 /* WorldyObjectTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldyObjectTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBB7BFAE16CDDA010057DC39 /* WorldyObjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorldyObjectTests-Info.plist"; sourceTree = "<group>"; };
+		FBB7BFB016CDDA010057DC39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBB7BFB216CDDA010057DC39 /* WorldyObjectTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldyObjectTests.h; sourceTree = "<group>"; };
+		FBB7BFB316CDDA010057DC39 /* WorldyObjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldyObjectTests.m; sourceTree = "<group>"; };
+		FBB7BFB516CDDA010057DC39 /* WorldyObjectTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorldyObjectTests-Prefix.pch"; sourceTree = "<group>"; };
+		FBB7BFC516CDE3B60057DC39 /* WorldyObjectTestSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldyObjectTestSettings.h; sourceTree = "<group>"; };
+		FBB7BFC616CDE3B60057DC39 /* WorldyObjectTestSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldyObjectTestSettings.m; sourceTree = "<group>"; };
 		FBB988E016CCA1EF0073418C /* physics engine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "physics engine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB988E416CCA1EF0073418C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FBB988E616CCA1EF0073418C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +95,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FBB7BF8C16CDD1A80057DC39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB7BF9216CDD1A80057DC39 /* SenTestingKit.framework in Frameworks */,
+				FBB7BF9316CDD1A80057DC39 /* UIKit.framework in Frameworks */,
+				FBB7BF9416CDD1A80057DC39 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB7BFA416CDDA010057DC39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB7BFA916CDDA010057DC39 /* SenTestingKit.framework in Frameworks */,
+				FBB7BFAA16CDDA010057DC39 /* UIKit.framework in Frameworks */,
+				FBB7BFAB16CDDA010057DC39 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBB988DD16CCA1EF0073418C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,10 +128,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FBB7BF9516CDD1A80057DC39 /* PhysicsLogicTests */ = {
+			isa = PBXGroup;
+			children = (
+				FBB7BF9B16CDD1A80057DC39 /* PhysicsLogicTests.h */,
+				FBB7BF9C16CDD1A80057DC39 /* PhysicsLogicTests.m */,
+				FBB7BF9616CDD1A80057DC39 /* Supporting Files */,
+			);
+			path = PhysicsLogicTests;
+			sourceTree = "<group>";
+		};
+		FBB7BF9616CDD1A80057DC39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBB7BF9716CDD1A80057DC39 /* PhysicsLogicTests-Info.plist */,
+				FBB7BF9816CDD1A80057DC39 /* InfoPlist.strings */,
+				FBB7BF9E16CDD1A80057DC39 /* PhysicsLogicTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBB7BFAC16CDDA010057DC39 /* WorldyObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				FBB7BFC516CDE3B60057DC39 /* WorldyObjectTestSettings.h */,
+				FBB7BFC616CDE3B60057DC39 /* WorldyObjectTestSettings.m */,
+				FBB7BFB216CDDA010057DC39 /* WorldyObjectTests.h */,
+				FBB7BFB316CDDA010057DC39 /* WorldyObjectTests.m */,
+				FBB7BFAD16CDDA010057DC39 /* Supporting Files */,
+			);
+			path = WorldyObjectTests;
+			sourceTree = "<group>";
+		};
+		FBB7BFAD16CDDA010057DC39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBB7BFAE16CDDA010057DC39 /* WorldyObjectTests-Info.plist */,
+				FBB7BFAF16CDDA010057DC39 /* InfoPlist.strings */,
+				FBB7BFB516CDDA010057DC39 /* WorldyObjectTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		FBB988D516CCA1EF0073418C = {
 			isa = PBXGroup;
 			children = (
 				FBB988EA16CCA1EF0073418C /* physics_engine */,
+				FBB7BF9516CDD1A80057DC39 /* PhysicsLogicTests */,
+				FBB7BFAC16CDDA010057DC39 /* WorldyObjectTests */,
 				FBB988E316CCA1EF0073418C /* Frameworks */,
 				FBB988E116CCA1EF0073418C /* Products */,
 			);
@@ -84,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				FBB988E016CCA1EF0073418C /* physics engine.app */,
+				FBB7BF9016CDD1A80057DC39 /* PhysicsLogicTests.octest */,
+				FBB7BFA816CDDA010057DC39 /* WorldyObjectTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +197,7 @@
 				FBB988E416CCA1EF0073418C /* UIKit.framework */,
 				FBB988E616CCA1EF0073418C /* Foundation.framework */,
 				FBB988E816CCA1EF0073418C /* CoreGraphics.framework */,
+				FBB7BF9116CDD1A80057DC39 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +269,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FBB7BF8F16CDD1A80057DC39 /* PhysicsLogicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBB7BFA116CDD1A80057DC39 /* Build configuration list for PBXNativeTarget "PhysicsLogicTests" */;
+			buildPhases = (
+				FBB7BF8B16CDD1A80057DC39 /* Sources */,
+				FBB7BF8C16CDD1A80057DC39 /* Frameworks */,
+				FBB7BF8D16CDD1A80057DC39 /* Resources */,
+				FBB7BF8E16CDD1A80057DC39 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhysicsLogicTests;
+			productName = PhysicsLogicTests;
+			productReference = FBB7BF9016CDD1A80057DC39 /* PhysicsLogicTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		FBB7BFA716CDDA010057DC39 /* WorldyObjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBB7BFB616CDDA010057DC39 /* Build configuration list for PBXNativeTarget "WorldyObjectTests" */;
+			buildPhases = (
+				FBB7BFA316CDDA010057DC39 /* Sources */,
+				FBB7BFA416CDDA010057DC39 /* Frameworks */,
+				FBB7BFA516CDDA010057DC39 /* Resources */,
+				FBB7BFA616CDDA010057DC39 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WorldyObjectTests;
+			productName = WorldyObjectTests;
+			productReference = FBB7BFA816CDDA010057DC39 /* WorldyObjectTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		FBB988DF16CCA1EF0073418C /* physics engine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBB9890416CCA1EF0073418C /* Build configuration list for PBXNativeTarget "physics engine" */;
@@ -204,11 +344,29 @@
 			projectRoot = "";
 			targets = (
 				FBB988DF16CCA1EF0073418C /* physics engine */,
+				FBB7BF8F16CDD1A80057DC39 /* PhysicsLogicTests */,
+				FBB7BFA716CDDA010057DC39 /* WorldyObjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FBB7BF8D16CDD1A80057DC39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB7BF9A16CDD1A80057DC39 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB7BFA516CDDA010057DC39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB7BFB116CDDA010057DC39 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBB988DE16CCA1EF0073418C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,7 +381,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FBB7BF8E16CDD1A80057DC39 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		FBB7BFA616CDDA010057DC39 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		FBB7BF8B16CDD1A80057DC39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB7BF9D16CDD1A80057DC39 /* PhysicsLogicTests.m in Sources */,
+				FBB7BFB916CDE1670057DC39 /* Matrix2D.m in Sources */,
+				FBB7BFBB16CDE16B0057DC39 /* Vector2D.m in Sources */,
+				FBB7BFBD16CDE16F0057DC39 /* World.m in Sources */,
+				FBB7BFBF16CDE1720057DC39 /* PhysicsLogic.m in Sources */,
+				FBB7BFC416CDE27A0057DC39 /* EnvironmentSettings.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB7BFA316CDDA010057DC39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB7BFB416CDDA010057DC39 /* WorldyObjectTests.m in Sources */,
+				FBB7BFBA16CDE1680057DC39 /* Matrix2D.m in Sources */,
+				FBB7BFBC16CDE16B0057DC39 /* Vector2D.m in Sources */,
+				FBB7BFBE16CDE16F0057DC39 /* World.m in Sources */,
+				FBB7BFC016CDE1730057DC39 /* PhysicsLogic.m in Sources */,
+				FBB7BFC116CDE1960057DC39 /* WorldyObject.m in Sources */,
+				FBB7BFC316CDE2780057DC39 /* EnvironmentSettings.m in Sources */,
+				FBB7BFC716CDE3B60057DC39 /* WorldyObjectTestSettings.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBB988DC16CCA1EF0073418C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +458,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		FBB7BF9816CDD1A80057DC39 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBB7BF9916CDD1A80057DC39 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FBB7BFAF16CDDA010057DC39 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBB7BFB016CDDA010057DC39 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		FBB988ED16CCA1EF0073418C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -262,6 +493,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FBB7BF9F16CDD1A80057DC39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhysicsLogicTests/PhysicsLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "PhysicsLogicTests/PhysicsLogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		FBB7BFA016CDD1A80057DC39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhysicsLogicTests/PhysicsLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "PhysicsLogicTests/PhysicsLogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		FBB7BFB716CDDA010057DC39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WorldyObjectTests/WorldyObjectTests-Prefix.pch";
+				INFOPLIST_FILE = "WorldyObjectTests/WorldyObjectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		FBB7BFB816CDDA010057DC39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WorldyObjectTests/WorldyObjectTests-Prefix.pch";
+				INFOPLIST_FILE = "WorldyObjectTests/WorldyObjectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		FBB9890216CCA1EF0073418C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -339,6 +630,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FBB7BFA116CDD1A80057DC39 /* Build configuration list for PBXNativeTarget "PhysicsLogicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBB7BF9F16CDD1A80057DC39 /* Debug */,
+				FBB7BFA016CDD1A80057DC39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FBB7BFB616CDDA010057DC39 /* Build configuration list for PBXNativeTarget "WorldyObjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBB7BFB716CDDA010057DC39 /* Debug */,
+				FBB7BFB816CDDA010057DC39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		FBB988DA16CCA1EF0073418C /* Build configuration list for PBXProject "physics engine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

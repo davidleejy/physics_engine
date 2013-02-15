@@ -67,16 +67,10 @@
     
     [worldyObject setAngularVelocity:
     
-    [
-    [worldyObject angularVelocity]
-    add:
-        [
-        [[worldyObject netTorque]multiply:(1.0/[worldyObject momentOfInertia])]
-        multiply:
-        DELTA_TIME
-        ]
-    ]
-    
+        [worldyObject angularVelocity]
+        +
+        DELTA_TIME*([worldyObject netTorque] / [worldyObject momentOfInertia])
+     
     ];
 }
 

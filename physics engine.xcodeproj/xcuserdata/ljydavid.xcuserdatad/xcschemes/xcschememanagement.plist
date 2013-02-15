@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PhysicsLogicTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>WorldyObjectTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>physics engine.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FBB7BF8F16CDD1A80057DC39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBB7BFA716CDDA010057DC39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FBB988DF16CCA1EF0073418C</key>
 		<dict>
 			<key>primary</key>

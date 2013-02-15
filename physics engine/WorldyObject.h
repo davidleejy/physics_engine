@@ -12,15 +12,25 @@
 
 @interface WorldyObject : NSObject
 
-@property (readonly) CGFloat mass;
-@property (readonly) CGFloat momentOfInertia;
-@property (readonly) Vector2D *position;
+@property (readonly) double mass;
+@property (readonly) double momentOfInertia;
+@property (readonly) double width;
+@property (readonly) double height;
+
+@property (readwrite) Vector2D *position;
 @property (readwrite) Vector2D *velocity;
-@property (readwrite) Vector2D *angularVelocity;
-@property (readonly) CGFloat width;
-@property (readonly) CGFloat height;
+@property (readwrite) double angularVelocity;
 @property (readwrite) Vector2D *netForce;
-@property (readwrite) Vector2D *netTorque;
-@property (readwrite) CGFloat rotationAngle;
+@property (readwrite) double netTorque;
+@property (readwrite) double rotationAngle;
+
+
+- (WorldyObject*) initWithMass:(double)m AndWidth:(double)w AndHeight:(double)h AndPosition:(Vector2D*)pos AndVelocity:(Vector2D*)vel AndAngularVelocity:(double)angvel AndRotationAngle:(double)rot;
+    // EFFECTS: Ctor. Initializes a worldy object
+
++ (WorldyObject*) worldyObjectWithMass:(double)m AndWidth:(double)w AndHeight:(double)h AndPosition:(Vector2D*)pos;
+   // EFFECTS: Lazy Ctor. Initializes a worldy object with 0 velocity, 0 angular velocity, 0 rotation angle.
+
+
 
 @end
