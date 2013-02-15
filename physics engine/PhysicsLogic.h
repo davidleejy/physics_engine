@@ -51,18 +51,44 @@
 - (Vector2D*) unitDirectionalVectorNormalToE4Of:(WorldyObject*)worldyObject;
 // EFFECTS: computes unit directional vector normal to E4 side of worldyObject.
 
-- (Vector2D*) directionalVectorFrom:(WorldyObject*)worldyObjectA To:(WorldyObject*)worldyObjectB;
+- (Vector2D*) directionalVectorInWorldCoordSystemFrom:(WorldyObject*)worldyObjectA To:(WorldyObject*)worldyObjectB;
 // EFFECTS: computes direction vector pointing from the origin of worldyObjectA to the origin of worldyObjectB.
+//          This is w.r.t to the world coordinate system.
+//          Symbol: d with arrow on top. No subscripts.
+
+- (Vector2D*) directionalVectorInWorldyObjectACoordSystemFrom:(WorldyObject*)worldyObjectA To:(WorldyObject*)worldyObjectB;
+// EFFECTS: computes direction vector pointing from the origin of worldyObjectA to the origin of worldyObjectB.
+//          This is w.r.t to the worldyObject A's coordinate system.
+//          Symbol: d with arrow on top. Subscript A.
+
+- (Vector2D*) directionalVectorInWorldyObjectBCoordSystemFrom:(WorldyObject*)worldyObjectA To:(WorldyObject*)worldyObjectB;
+// EFFECTS: computes direction vector pointing from the origin of worldyObjectA to the origin of worldyObjectB.
+//          This is w.r.t to the worldyObject B's coordinate system.
+//          Symbol: d with arrow on top. Subscript B.
 
 - (Matrix2D*) transformationMatrixToMapACoordinateInSystem:(WorldyObject*)worldyObjectB ToACoordinateInSystem:(WorldyObject*)worldyObjectA;
 // EFFECTS: computes a transformation matrix that transforms a coordinate in system B to a coordinate in system A.
+//          Symbol: C matrix
 
-- (Vector2D*) fVectorOf:(WorldyObject*)worldyObjectA WithRespectTo:(WorldyObject*)worldyObjectB;
-// EFFECTS: computes f vector of worldyObjectA with respect to worldyObjectB;
+- (Vector2D*) fAVectorWith:(WorldyObject*)worldyObjectA And:(WorldyObject*)worldyObjectB;
+// EFFECTS: computes (f subscript A) vector with worldyObjectA and worldyObjectB.
+//          Symbol: f with arrow on top. Subscript A.
 
-- (BOOL) collided:(WorldyObject*)worldyObjectA :(WorldyObject*)worldyObjectB;
-// EFFECTS: returns YES if worldyObjectA has collided with worldyObjectB. Returns NO otherwise.
+- (Vector2D*) fBVectorWith:(WorldyObject*)worldyObjectA And:(WorldyObject*)worldyObjectB;
+// EFFECTS: computes (f subscript B) vector with worldyObjectA and worldyObjectB.
+//          Symbol: f with arrow on top. Subscript B.
 
-// PAGE 7 of appendix
+- (BOOL)hasCollidedCheck1:(Vector2D*)f_subscript_A :(Vector2D*)f_subscript_B;
+// EFFECTS: returns YES if all components of f_subscript_A and f_subscript_B are negative.
+
+
+- (BOOL) collisionResolution:(WorldyObject*)worldyObjectA :(WorldyObject*)worldyObjectB
+         ReturnContactPoint1Ptr:(Vector2D**)c1 ReturnContactPoint2Ptr:(Vector2D**)c2;
+// MODIFIES: c1, c2
+// EFFECTS: Resolves the collision between these worldyObjectA, worldyObjectB.
+//          Additionally, returns YES if collision was detected.
+// note that this is Step 2 of Appendix.
+
+
 
 @end

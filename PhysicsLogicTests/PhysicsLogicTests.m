@@ -16,7 +16,7 @@
 {
     [super setUp];
     
-    worldyObjectVanilla = [WorldyObject worldyObjectWithMass:75.63 AndWidth:50.12 AndHeight:12.34 AndPosition:[Vector2D vectorWith:23.45 y:34.56];
+    worldyObjectVanilla = [WorldyObject worldyObjectWithMass:75.63 AndWidth:50.12 AndHeight:12.34 AndPosition:[Vector2D vectorWith:23.45 y:34.56]];
 }
 
 - (void)tearDown

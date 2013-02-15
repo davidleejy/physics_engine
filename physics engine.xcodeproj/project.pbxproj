@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FB77B33016CD251D00EE09B2 /* Matrix2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890816CCA4F20073418C /* Matrix2D.m */; };
 		FB77B33216CD252400EE09B2 /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB9890A16CCA4F20073418C /* Vector2D.m */; };
+		FBB7337816CE37580026B7EB /* WorldyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA99F16CCE36300BBA13D /* WorldyObject.m */; };
 		FBB7BF9216CDD1A80057DC39 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7BF9116CDD1A80057DC39 /* SenTestingKit.framework */; };
 		FBB7BF9316CDD1A80057DC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E416CCA1EF0073418C /* UIKit.framework */; };
 		FBB7BF9416CDD1A80057DC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB988E616CCA1EF0073418C /* Foundation.framework */; };
@@ -421,6 +422,7 @@
 				FBB7BFBD16CDE16F0057DC39 /* World.m in Sources */,
 				FBB7BFBF16CDE1720057DC39 /* PhysicsLogic.m in Sources */,
 				FBB7BFC416CDE27A0057DC39 /* EnvironmentSettings.m in Sources */,
+				FBB7337816CE37580026B7EB /* WorldyObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +639,7 @@
 				FBB7BFA016CDD1A80057DC39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBB7BFB616CDDA010057DC39 /* Build configuration list for PBXNativeTarget "WorldyObjectTests" */ = {
 			isa = XCConfigurationList;
@@ -645,6 +648,7 @@
 				FBB7BFB816CDDA010057DC39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBB988DA16CCA1EF0073418C /* Build configuration list for PBXProject "physics engine" */ = {
 			isa = XCConfigurationList;
