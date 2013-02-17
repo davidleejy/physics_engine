@@ -57,6 +57,6 @@
   // EFFECTS: Returns the cross product of this vector
   //		with a Z-component of double v
 
-
+-(void)printWithPrefix:(NSString*)prefixStr;
 
 @end

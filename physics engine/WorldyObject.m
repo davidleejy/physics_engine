@@ -28,6 +28,8 @@
 @property (readwrite) double momentOfInertia;
 @property (readwrite) double width;
 @property (readwrite) double height;
+@property (readwrite) double restitutionCoeff;
+@property (readwrite) double frictionCoeff;
 
 @end
 
@@ -46,13 +48,20 @@
 @synthesize netForce = _netForce;
 @synthesize netTorque = _netTorque;
 @synthesize rotationAngle = _rotationAngle;
+@synthesize restitutionCoeff = _restitutionCoeff;
+@synthesize frictionCoeff = _frictionCoeff;
+@synthesize isUnmoveable = _isUnmoveable;
 
+/******* COSNTANTS **********/
+double const DEFAULT_RESTITUTION_COEFFICIENT = 0.5;
+double const DEFAULT_FRICTION_COEFFICIENT = 0.5;
+/****************************/
 
-- (WorldyObject*) initWithMass:(double)m AndWidth:(double)w AndHeight:(double)h AndPosition:(Vector2D*)pos AndVelocity:(Vector2D*)vel AndAngularVelocity:(double)angVel AndRotationAngle:(double)rot {
+- (WorldyObject*) initWithMass:(double)m Width:(double)w Height:(double)h Position:(Vector2D*)pos Velocity:(Vector2D*)vel AngularVelocity:(double)angVel RotationAngle:(double)rot RestitutionCoeff:(double)e FrictionCoeff:(double)frictionCoeff IsUnmoveable:(BOOL) isUnmoveable {
     
     if(self = [super init]){
         _mass = m;
-        _momentOfInertia = ((powf(w, 2.0) + powf(h, 2.0)) / 12.0 ) * m;
+        _momentOfInertia = (((w*w) + (h*h)) / 12.0 ) * m;
         _width = w;
         _height = h;
         _position = [Vector2D vectorWith:[pos x] y:[pos y]];
@@ -61,17 +70,31 @@
         _netForce = [Vector2D vectorWith:0 y:0];
         _netTorque = 0;
         _rotationAngle = rot;
+        _restitutionCoeff = e;
+        _frictionCoeff = frictionCoeff;
+        _isUnmoveable = isUnmoveable;
     }
     return self;
 }
 
 
-+ (WorldyObject*) worldyObjectWithMass:(double)m AndWidth:(double)w AndHeight:(double)h AndPosition:(Vector2D*)pos {
++ (WorldyObject*) worldyObjectWithMass:(double)m Width:(double)w Height:(double)h Position:(Vector2D*)pos {
     
     Vector2D *zeroVector = [Vector2D vectorWith:0 y:0];
     
-    return [[WorldyObject alloc] initWithMass:m AndWidth:w AndHeight:h AndPosition:pos AndVelocity:zeroVector AndAngularVelocity:0.0 AndRotationAngle:0.0];
+    return [[WorldyObject alloc] initWithMass:m Width:w Height:h Position:pos Velocity:zeroVector AngularVelocity:0.0 RotationAngle:0.0 RestitutionCoeff:DEFAULT_RESTITUTION_COEFFICIENT FrictionCoeff:DEFAULT_FRICTION_COEFFICIENT IsUnmoveable:NO];
 }
 
++ (WorldyObject*) worldyObjectUnmoveableWithWidth:(double)w AndHeight:(double)h AndPosition:(Vector2D*)pos {
+    
+    Vector2D *zeroVector = [Vector2D vectorWith:0 y:0];
+    
+    return [[WorldyObject alloc] initWithMass:INFINITY Width:w Height:h Position:pos Velocity:zeroVector AngularVelocity:0.0 RotationAngle:0.0 RestitutionCoeff:DEFAULT_RESTITUTION_COEFFICIENT FrictionCoeff:DEFAULT_FRICTION_COEFFICIENT IsUnmoveable:YES];
+}
+
+
++ (double) DEFAULT_RESTITUTION_COEFFICIENT {return DEFAULT_RESTITUTION_COEFFICIENT;}
+
++ (double) DEFAULT_FRICTION_COEFFICIENT {return DEFAULT_FRICTION_COEFFICIENT;}
 
 @end

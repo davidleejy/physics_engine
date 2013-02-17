@@ -19,7 +19,7 @@
     WorldyObject *worldyObjectB;
     WorldyObject *worldyObjectC;
     WorldyObject *worldyObjectD;
-    
+    PhysicsLogic *physicsLogic;
 }
 
 @end

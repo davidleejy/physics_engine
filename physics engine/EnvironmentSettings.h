@@ -17,4 +17,7 @@ FOUNDATION_EXPORT CGFloat ACCELERATION_OF_GRAVITY;
 // Infinitesmally small period of time.
 FOUNDATION_EXPORT CGFloat DELTA_TIME;
 
+// How many iterations impulse calculation takes.
+FOUNDATION_EXPORT int ITERATIONS_IN_IMPULSE_CALCULATION;
+
 @end

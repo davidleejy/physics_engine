@@ -15,29 +15,53 @@
 @class WorldyObject;
 
 
-@interface PhysicsLogic : NSObject
+@interface PhysicsLogic : NSObject <UIAccelerometerDelegate>{
+    UIAccelerometer* iPadAccelerometer;
+}
 
 @property (readwrite) World *world;
 @property (readwrite) Vector2D *gravity;
+@property (readwrite) NSString* postNotificationName; // Alert changes to world property
+@property (readonly) BOOL isUsingNotificationCenter;
+
 
 /******* KEYS FOR DICTIONARY **********/
 extern NSString *const KEY_c1_vector;
 extern NSString *const KEY_c2_vector;
+extern NSString *const KEY_c1_separation;
+extern NSString *const KEY_c2_separation;
 extern NSString *const KEY_n_vector;
 extern NSString *const KEY_t_vector;
+extern NSString *const KEY_velocity_vector_A;
+extern NSString *const KEY_velocity_vector_B;
+extern NSString *const KEY_angular_velocity_vector_A;
+extern NSString *const KEY_angular_velocity_vector_B;
 
 extern NSString *const KEY_collision_truth_value;
 extern NSString *const KEY_computed_impluse_truth_value;
 
 /***************************************/
 
+- (PhysicsLogic*) initWithAlertToWorldChanges:(NSString*)myPostNotificationName;
+// EFFECTS: ctor
+//          gravity is set to (0,0).
+//          NSNotificationCenter used to alert the outside world of changes to world.
+
+
+- (PhysicsLogic*) initWithoutNotificationCenterUsage;
+// EFFECTS: ctor
+//          gravity is set to (0,0).
+//          NSNotificationCenter is not used.
+
 - (void) updateVelocity:(WorldyObject*)worldyObject;
 // MODIFIES: velocity property of a worldly object.
 // EFFECTS: updates the velocity property of a worldly object in accordance to formula provided in appendix.
+//          note that this is part(1/2) of step 1 in appendix.
 
 - (void) updateAngularVelocity:(WorldyObject*)worldyObject;
 // MODIFIES: angular velocity property of a worldly object.
 // EFFECTS: updates the angular velocity property of a worldly object in accordance to formula provided in appendix.
+//          note that this is part(2/2) of step 1 in appendix.
 
 - (Matrix2D*) rotationMatrixOf:(WorldyObject*)worldyObject;
 // EFFECTS: computes the rotation matrix of worldyObject.
@@ -101,14 +125,44 @@ extern NSString *const KEY_computed_impluse_truth_value;
 - (NSDictionary*) impulsesOfCollisionBetween:(WorldyObject*)worldyObjectA
                                          And:(WorldyObject*)worldyObjectB
             WithValuesFromResolvingCollision:(NSDictionary*)dictFromResolvingCollision;
+// REQUIRES: worldyObjectA and worldyObjectB be in collision.
 // EFFECTS: Returns a NSdictionary of values that pertain to applying impulses to the collision.
 // note that this is Step 3 of Appendix.
 
 - (void) moveWorldyObjects:(WorldyObject*)worldyObjectA
                           :(WorldyObject*)worldyObjectB
-WithValuesFromComputingImpulse:(NSDictionary*)dictFromComputingImpulse;
+                WithValues:(NSDictionary*)dictContainer;
+// REQUIRES: dictContainer must contain:
+//              final velocity of worldyObjectA
+//              final velocity of worldyObjectB
+//              final angular velocity of worldyObjectA
+//              final angular velocity of worldyObjectB
 // MODIFIES: worldyObjectA, worldyObjectB
-// EFFECTS: Moves the worldyObjects involved.
+// EFFECTS: Moves the worldyObjects involved. That is, updates the status of the bodies.
 // note that this is Step 4 of Appendix.
+
+- (void) simulateInteractionsInWorldOccurringInOneDeltaTime;
+// MODIFIES: world
+// EFFECTS: modifies world property to simulate the interactions between objects in world.
+//          This is the "main" method that a UIViewController should call.
+//          If property isUsingNotificationCenter == YES, each call of this method would
+//          post a notification message.
+
+
+- (void) simulateInteractionsWithNoCollisionResolutionInOnedt;
+// MODIFIES: world
+// EFFECTS: modifies world property to simulate no collisions between objects.
+
+- (double) getDeltaTime;
+// EFFECTS: returns the delta time of this physics engine.
+
+- (void) addWorldyObject:(WorldyObject*)worldyObjectToAdd;
+// MODIFIES: world property in this class.
+// EFFECTS: adds worldyObjectToAdd to world property;
+
+
+
+- (NSDictionary*) blah1;
+- (void) blah2:(NSDictionary*)input;
 
 @end

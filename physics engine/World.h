@@ -7,9 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+@class WorldyObject;
 
 @interface World : NSObject
 
 @property (readwrite) NSMutableArray *stuffInWorld;
+
+- (World*) init;
+// EFFECTS: ctor
+
+- (void) addWorldyObject:(WorldyObject*)worldyObjectToAdd;
+// MODIFIES: stuffInWorld property
+// EFFECTS: adds worldyObjectToAdd to stuffInWorld property
 
 @end

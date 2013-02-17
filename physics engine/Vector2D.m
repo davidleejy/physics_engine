@@ -82,4 +82,8 @@
   return [Vector2D vectorWith:(v*self.y) y:(-v*self.x)];
 }
 
+-(void)printWithPrefix:(NSString*)prefixStr {
+    NSLog(@"%@(%.7f,%.7f)",prefixStr,self.x,self.y);
+}
+
 @end

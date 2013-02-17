@@ -15,21 +15,24 @@
 
 @implementation WorldyObjectTests
 
-WorldyObject* wObj1 (double mass, double width, double height, double posX, double posY, double velX, double velY, double angVel, double rotAng) {
+WorldyObject* wObj1 (double mass, double width, double height, double posX, double posY, double velX, double velY, double angVel, double rotAng, double e, double frictionCoeff, BOOL isUnmoveable) {
     
     return [[WorldyObject alloc] initWithMass:mass
-                                     AndWidth:width
-                                    AndHeight:height
-                                  AndPosition: [Vector2D vectorWith:posX y:posY]
-                                  AndVelocity: [Vector2D vectorWith:velX y:velY]
-                           AndAngularVelocity:angVel
-                             AndRotationAngle:rotAng];
+                                     Width:width
+                                    Height:height
+                                  Position: [Vector2D vectorWith:posX y:posY]
+                                  Velocity: [Vector2D vectorWith:velX y:velY]
+                           AngularVelocity:angVel
+                             RotationAngle:rotAng
+                             RestitutionCoeff:e
+                                FrictionCoeff:frictionCoeff
+                                IsUnmoveable:isUnmoveable];
 }
 
 
 WorldyObject* wObj2 (double mass, double width, double height, double posX, double posY) {
     
-    return [WorldyObject worldyObjectWithMass:mass AndWidth:width AndHeight:height AndPosition:[Vector2D vectorWith:posX y:posY]];
+    return [WorldyObject worldyObjectWithMass:mass Width:width Height:height Position:[Vector2D vectorWith:posX y:posY]];
 }
 
 
@@ -59,7 +62,6 @@ double randNum (int n, int nonZeroDecimalPlaces) {
 
 
 -(BOOL)approxEq:(double)d1 :(double)d2{
-	//STAssertTrue(fabs(d1 - d2) < FLOATING_POINT_COMPARISON_ACCURACY, @"", @"");
     
     return fabs(d1 - d2) < FLOATING_POINT_COMPARISON_ACCURACY;
 }
@@ -154,8 +156,11 @@ double randNum (int n, int nonZeroDecimalPlaces) {
         double velY = randNum(100, 6);
         double angVel = randNum(100, 6);
         double rotAng = randNum(100, 6);
+        double e = fabs(randNum(1, 6));
+        double frictionCoeff = fabs(randNum(0, 6));
+        BOOL isUnmoveable = NO;
         
-        Object1 = [[WorldyObject alloc] initWithMass:mass AndWidth:width AndHeight:height AndPosition:[Vector2D vectorWith:posX y:posY] AndVelocity:[Vector2D vectorWith:velX y:velY] AndAngularVelocity:angVel AndRotationAngle:rotAng];
+        Object1 = [[WorldyObject alloc] initWithMass:mass Width:width Height:height Position:[Vector2D vectorWith:posX y:posY] Velocity:[Vector2D vectorWith:velX y:velY] AngularVelocity:angVel RotationAngle:rotAng RestitutionCoeff:e FrictionCoeff:frictionCoeff IsUnmoveable:isUnmoveable];
         
         double momentOfInertia = ((powf(height, 2.0) + powf(width, 2.0)) / 12.0) * mass;
         
@@ -169,10 +174,12 @@ double randNum (int n, int nonZeroDecimalPlaces) {
         [self assertApproxEq:velY :[[Object1 velocity]y]];
         [self assertApproxEq:angVel :[Object1 angularVelocity]];
         [self assertApproxEq:rotAng :[Object1 rotationAngle]];
+        [self assertApproxEq:e :[Object1 restitutionCoeff]];
+        [self assertApproxEq:frictionCoeff :[Object1 frictionCoeff]];
         
         
         // Testing lazy ctor
-        Object2 = [WorldyObject worldyObjectWithMass:mass AndWidth:width AndHeight:height AndPosition:[Vector2D vectorWith:posX y:posY]];
+        Object2 = [WorldyObject worldyObjectWithMass:mass Width:width Height:height Position:[Vector2D vectorWith:posX y:posY]];
         
         [self assertApproxEq:mass :[Object2 mass]];
         [self assertApproxEq:width :[Object2 width]];
@@ -184,6 +191,8 @@ double randNum (int n, int nonZeroDecimalPlaces) {
         [self assertApproxEq:0 :[[Object2 velocity]y]];
         [self assertApproxEq:0 :[Object2 angularVelocity]];
         [self assertApproxEq:0 :[Object2 rotationAngle]];
+        [self assertApproxEq:[WorldyObject DEFAULT_RESTITUTION_COEFFICIENT]  :[Object2 restitutionCoeff]];
+        [self assertApproxEq:[WorldyObject DEFAULT_FRICTION_COEFFICIENT] :[Object2 frictionCoeff]];
         
     }
     

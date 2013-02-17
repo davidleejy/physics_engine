@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class PhysicsLogic;
+
 @interface ViewController : UIViewController
+
+@property (readonly) NSTimer* timeSteppingForPhysicsEngine;
+@property (readonly) PhysicsLogic* physicsEngine;
 
 @end
